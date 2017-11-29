@@ -1,0 +1,101 @@
+/* body */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  border: $grid-gutter-width/2 solid $white;
+}
+
+/* app */
+
+#app {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* header, main and columns */
+
+header,
+main {
+  display: flex;
+  width: 200%;
+
+  @include media-breakpoint-up(md) {
+    width: auto;
+  }
+}
+
+header a[href="#contacts"],
+header a[href="#chat"],
+#contacts,
+#chat {
+  @include make-col-ready();
+}
+
+
+header a[href="#contacts"] {
+  @include make-col(2);
+}
+
+#contacts {
+  @include make-col(6);
+}
+
+header a[href="#chat"] {
+  @include make-col(2);
+}
+
+#chat {
+  @include make-col(6);
+}
+
+header a[href="#contacts"],
+#contacts {
+  @include media-breakpoint-up(md) {
+    @include make-col(4);
+  }
+}
+
+header a[href="#chat"],
+#chat {
+  @include media-breakpoint-up(md) {
+    @include make-col(8);
+  }
+}
+
+header {
+  a[href="#contacts"],
+  a[href="#chat"] {
+    padding-top: $grid-gutter-width/2;
+    padding-bottom: $grid-gutter-width/2;
+  }
+
+}
+
+/* main transitioning */
+main {
+  flex: 1;
+  overflow: hidden;
+
+  > * {
+    transition: transform .25s;
+  }
+  &.show-chat {
+
+    > * {
+      transform: translate(-100%, 0);
+    }
+    @include media-breakpoint-up(md) {
+      > * {
+        transform: translate(0, 0);
+      }
+    }
+  }
+}
+

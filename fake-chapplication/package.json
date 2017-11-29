@@ -1,0 +1,17 @@
+{
+  "name": "017-chapplication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node-sass --watch --output dist --source-map true --source-map-contents sass --output-style compressed sass/styles.scss",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "^4.0.0-beta",
+    "node-sass": "^4.5.3"
+  }
+}
